@@ -1,10 +1,9 @@
 import { Provider as PaperProvider, Icon, MD2DarkTheme } from 'react-native-paper';
-import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { HomeScreen } from './HomeScreen';
-import { ClipsScreen } from './ClipsScreen';
-import { GamesScreen } from './GamesScreen';
-import { MyNetflixScreen } from './MyNetflixScreen';
+import { Home } from './Home';
+import { Clips } from './Clips';
+import { Games } from './Games';
+import { MyNetflix } from './MyNetflix';
 
 const Tab = createBottomTabNavigator();
 
@@ -19,7 +18,6 @@ export default function Dashboard() {
 
   return (
     <PaperProvider theme={theme}>
-      <NavigationContainer>
         <Tab.Navigator
           initialRouteName="Home"
           screenOptions={({ route }) => ({
@@ -33,7 +31,7 @@ export default function Dashboard() {
         >
           <Tab.Screen
             name="Home"
-            component={HomeScreen}
+            component={Home}
             options={{
               tabBarLabel: 'Home',
               tabBarIcon: ({ color, focused }) => (
@@ -45,7 +43,7 @@ export default function Dashboard() {
           />
           <Tab.Screen
             name="Clips"
-            component={ClipsScreen}
+            component={Clips}
             options={{
               tabBarLabel: 'Clips',
               tabBarIcon: ({ color, focused }) => (
@@ -57,7 +55,7 @@ export default function Dashboard() {
           />
           <Tab.Screen
             name="Games"
-            component={GamesScreen}
+            component={Games}
             options={{
               tabBarLabel: 'Games',
               tabBarIcon: ({ color, focused }) => (
@@ -69,7 +67,7 @@ export default function Dashboard() {
           />
           <Tab.Screen
             name="My Netflix"
-            component={MyNetflixScreen}
+            component={MyNetflix}
             options={{
               tabBarLabel: 'My Netflix',
               tabBarIcon: ({ color, focused }) => (
@@ -80,8 +78,6 @@ export default function Dashboard() {
             }}
           />
         </Tab.Navigator>
-      </NavigationContainer>
     </PaperProvider>
   );
 }
-

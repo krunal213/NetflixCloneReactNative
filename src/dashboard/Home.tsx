@@ -1,12 +1,12 @@
 import { View, StyleSheet, FlatList, Image, ListRenderItem } from 'react-native';
-import { AppHeader, type HeaderAction } from './AppHeader';
+import { AppHeader, type HeaderAction } from '../AppHeader';
 import { Chip, Text } from 'react-native-paper';
 import LinearGradient from 'react-native-linear-gradient';
 
-export function HomeScreen() {
+export function Home() {
   const headerActions: HeaderAction[] = [
-    { icon: 'arrow-collapse-down', onPress: () => console.log('Notifications') },
-    { icon: 'magnify', onPress: () => console.log('Search') },
+    { icon: require('../../assets/icons/ic_download.png'), onPress: () => console.log('Notifications') },
+    { icon: require('../../assets/icons/ic_search.png'), onPress: () => console.log('Search') },
   ];
 
   // 🔹 Section interface (NO id, NO type)
@@ -105,7 +105,7 @@ export function HomeScreen() {
       contentContainerStyle={{ paddingLeft: 16, marginTop: 12 }}
       renderItem={({ item }) => (
         <Chip
-          style={homeScreen.chip}
+          style={home.chip}
           onPress={() => console.log('Chip:', item.id)}
         >
           {item.label}
@@ -194,17 +194,15 @@ export function HomeScreen() {
     <LinearGradient colors={['#20525E', '#295F6A', '#32727E']} // dark → light
       start={{ x: 0, y: 0 }}   // top
       end={{ x: 0, y: 1 }}
-      style={homeScreen.container}  >
-      <View style={homeScreen.container}>
-        <AppHeader title={
-          <Image
-            source={require('../../assets/icons/ic_netflix.png')}
-          />
-        } actions={headerActions} style={
-          {
-            backgroundColor: 'transparent', elevation: 0
-          }
-        } />
+      style={home.container}  >
+      <View style={home.container}>
+        <AppHeader
+          logo={require('../../assets/icons/ic_netflix.png')}
+          actions={headerActions} style={
+            {
+              backgroundColor: 'transparent', elevation: 0
+            }
+          } />
 
         <FlatList
           data={content}
@@ -218,7 +216,7 @@ export function HomeScreen() {
 }
 
 
-const homeScreen = StyleSheet.create({
+const home = StyleSheet.create({
   container: {
     flex: 1
   },
