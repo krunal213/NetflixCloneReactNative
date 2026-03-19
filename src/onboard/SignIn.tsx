@@ -14,7 +14,7 @@ const SignIn = () => {
     return (
         <View style={styles.container}>
             <AppHeader
-                title={
+                logo={
                     <Image
                         source={require('../../assets/icons/ic_netflix.png')}
                     />
