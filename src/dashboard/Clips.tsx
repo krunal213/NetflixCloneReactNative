@@ -4,7 +4,7 @@ import Video from 'react-native-video';
 
 const { height } = Dimensions.get('window');
 
-export function ClipsScreen() {
+export function Clips() {
   return (
     <View>
       <ShortsFeed />
@@ -32,7 +32,7 @@ export function ShortsFeed() {
       data={DATA}
       keyExtractor={item => item.id}
       renderItem={({ item, index }) => (
-        <View style={clipsScreen.page}>
+        <View style={clips.page}>
           <Video
             source={{ uri: item.url }}
             style={StyleSheet.absoluteFill}
@@ -55,7 +55,7 @@ export function ShortsFeed() {
   );
 }
 
-const clipsScreen = StyleSheet.create({
+const clips = StyleSheet.create({
   page: {
     height
   },
