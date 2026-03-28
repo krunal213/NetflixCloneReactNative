@@ -4,9 +4,9 @@ import {
   TextInput,
   StyleSheet,
 } from 'react-native';
-import { AppHeader, HeaderAction } from '../../../AppHeader';
+import { AppHeader, HeaderAction } from '../../AppHeader';
 import { useNavigation } from '@react-navigation/native';
-import { NavigationProp } from '../../../navigation/AppNavigation';
+import { NavigationProp } from '../../navigation/AppNavigation';
 
 export default function EmailVerification() {
   const [text, setText] = useState('');
@@ -14,7 +14,7 @@ export default function EmailVerification() {
 
   const headerActions: HeaderAction[] = [
     {
-      icon: require('../../../../assets/icons/ic_close.png'),
+      icon: require('@assets/icons/ic_close.png'),
       onPress: () => navigation.goBack(),
     },
   ];

@@ -1,6 +1,6 @@
 import {createSlice} from '@reduxjs/toolkit'
-import {homeAsyncThunk,Content} from '../asyncthunk/homeAsyncThunk'
-import {store} from '../../../../store'
+import {homeAsyncThunk,Content} from './homeAsyncThunk'
+import {store} from '../../store'
 
 const homeSlice = createSlice({
     name : "home",

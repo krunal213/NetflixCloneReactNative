@@ -1,11 +1,11 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import Splash from '../splash/view/Splash';
-import Dashboard from '../dashboard/navigation/DashboardNavigation';
-import GetStarted from '../onboard/getstarted/view/GetStarted';
-import EmailVerification from '../onboard/emailverification/view/EmailVerification';
-import SignIn from '../onboard/signin/view/SignIn';
+import Splash from '@view/splash/Splash';
+import DashboardNavigation from './DashboardNavigation';
+import GetStarted from '@view/getstarted/GetStarted';
+import EmailVerification from '@view/emailverification/EmailVerification';
+import SignIn from '@view/signin/SignIn';
 
 const Stack = createNativeStackNavigator();
 
@@ -31,7 +31,7 @@ export function AppNavigation() {
                     animation: 'slide_from_bottom',
                 }} />
                 <Stack.Screen name="SignIn" component={SignIn} />
-                <Stack.Screen name="Dashboard" component={Dashboard} />
+                <Stack.Screen name="DashboardNavigation" component={DashboardNavigation} />
             </Stack.Navigator>
         </NavigationContainer>
     )

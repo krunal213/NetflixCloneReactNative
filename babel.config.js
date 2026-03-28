@@ -1,6 +1,17 @@
 module.exports = {
   presets: ['module:@react-native/babel-preset'],
-  plugins: ['react-native-reanimated/plugin',
-    'babel-plugin-transform-typescript-metadata'
+  plugins: [
+    [
+      'module-resolver',
+      {
+        root: ['./'],
+        alias: {
+          '@view': './src/view',
+          '@assets': './assets',
+        },
+      },
+    ],
+    'babel-plugin-transform-typescript-metadata',
+    'react-native-reanimated/plugin', // MUST BE LAST
   ],
 };

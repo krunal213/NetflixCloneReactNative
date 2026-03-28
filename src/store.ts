@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
-import homeReducer from './dashboard/home/redux/slice/homeSlice'
+import homeReducer from './view/home/homeSlice'
 
 export const store = configureStore({
     reducer : {
