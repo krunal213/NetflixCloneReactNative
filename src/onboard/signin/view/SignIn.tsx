@@ -1,8 +1,8 @@
-import { StyleSheet, Text, View, TextInput, Image } from 'react-native'
+import { StyleSheet, View, TextInput, Image } from 'react-native'
 import React, { useState } from 'react'
 import { Button } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
-import { AppHeader, HeaderAction } from '../AppHeader';
+import { AppHeader, HeaderAction } from '../../../AppHeader';
 
 const SignIn = () => {
     const [text, setText] = useState('');
@@ -14,12 +14,8 @@ const SignIn = () => {
     return (
         <View style={styles.container}>
             <AppHeader
-                logo={
-                    <Image
-                        source={require('../../assets/icons/ic_netflix.png')}
-                    />
-                }
-                actions={headerActions}
+                logo={require('../../../../assets/icons/ic_netflix.png')}
+                actions={headerActions} 
             />
             <TextInput
                 placeholder="Enter email"

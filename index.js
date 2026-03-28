@@ -1,6 +1,7 @@
 /**
  * @format
  */
+import "reflect-metadata";
 
 import App from './src/App';
 import { AppRegistry } from 'react-native';

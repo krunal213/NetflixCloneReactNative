@@ -1,88 +1,24 @@
 import { View, StyleSheet, FlatList, Image, ListRenderItem } from 'react-native';
-import { AppHeader, type HeaderAction } from '../AppHeader';
+import { AppHeader, type HeaderAction } from '../../../AppHeader';
 import { Chip, Text } from 'react-native-paper';
 import LinearGradient from 'react-native-linear-gradient';
+import { ChipItem, BannerItem, MovieItem, Content } from '../redux/asyncthunk/homeAsyncThunk'
+import { useDispatch, useSelector } from 'react-redux'
+import type { RootState, AppDispatch } from '../../../store'
+import React, { useEffect } from 'react';
+import {homeAsyncThunk} from '../redux/asyncthunk/homeAsyncThunk'
 
 export function Home() {
+
+  const dispatch = useDispatch<AppDispatch>()
+  const content = useSelector((state: RootState) => state.home)
+  useEffect(() => {
+    dispatch(homeAsyncThunk())
+  }, [dispatch])
+
   const headerActions: HeaderAction[] = [
-    { icon: require('../../assets/icons/ic_download.png'), onPress: () => console.log('Notifications') },
-    { icon: require('../../assets/icons/ic_search.png'), onPress: () => console.log('Search') },
-  ];
-
-  // 🔹 Section interface (NO id, NO type)
-  interface Content {
-    title?: string;
-    data: unknown[];
-  }
-
-  // 🔹 Item interfaces (IDs ONLY here)
-  interface ChipItem {
-    id: string;
-    label: string;
-  }
-
-  interface BannerItem {
-    id: string;
-    image: string;
-    title: string;
-  }
-
-  interface MovieItem {
-    id: string;
-    poster: string;
-  }
-
-  // 🔹 Data
-  const content: Content[] = [
-    {
-      data: [
-        { id: 'c1', label: 'Coming Soon' },
-        { id: 'c2', label: 'Comedy' },
-        { id: 'c3', label: 'Drama' },
-        { id: 'c4', label: 'Sci-Fi' },
-        { id: 'c5', label: 'Romance' },
-      ],
-    },
-    {
-      data: [
-        {
-          id: 'b1',
-          image:
-            'https://m.media-amazon.com/images/M/MV5BMmQ0ZjliZTgtMjQ3NC00N2NiLTkxNjktY2VkOTQ2N2QyODNkXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg',
-          title: 'Kuch Kuch Hota Hai',
-        },
-      ],
-    },
-    {
-      title: 'Releases in the Past Year',
-      data: [
-        {
-          id: 'm1',
-          poster:
-            'https://assets.gadgets360cdn.com/pricee/assets/product/202512/Tu_Meri_Main_Tera_Main_Tera_Tu_M_1765534607.jpg',
-        },
-        {
-          id: 'm2',
-          poster:
-            'https://assets.gadgets360cdn.com/pricee/assets/product/202512/Raat_Akeli_Hai_The_Bansal_Murders_1765883140.jpg',
-        },
-      ],
-    },
-    {
-      title: 'Continue Watching',
-      data: [
-        {
-          id: 'm3',
-          poster:
-            'https://assets.gadgets360cdn.com/pricee/assets/product/202512/Tu_Meri_Main_Tera_Main_Tera_Tu_M_1765534607.jpg',
-        },
-        {
-          id: 'm4',
-          poster:
-            'https://assets.gadgets360cdn.com/pricee/assets/product/202512/Raat_Akeli_Hai_The_Bansal_Murders_1765883140.jpg',
-        },
-      ],
-    },
+    { icon: require('../../../../assets/icons/ic_download.png'), onPress: () => console.log('Notifications') },
+    { icon: require('../../../../assets/icons/ic_search.png'), onPress: () => console.log('Search') },
   ];
 
   // 🔹 Type guards
@@ -197,7 +133,7 @@ export function Home() {
       style={home.container}  >
       <View style={home.container}>
         <AppHeader
-          logo={require('../../assets/icons/ic_netflix.png')}
+          logo={require('../../../../assets/icons/ic_netflix.png')}
           actions={headerActions} style={
             {
               backgroundColor: 'transparent', elevation: 0
@@ -205,7 +141,7 @@ export function Home() {
           } />
 
         <FlatList
-          data={content}
+          data={content.result ?? []}
           renderItem={renderItem}
           keyExtractor={(_, index) => index.toString()}
           showsVerticalScrollIndicator={false}

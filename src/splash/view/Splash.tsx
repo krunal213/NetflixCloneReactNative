@@ -7,7 +7,7 @@ function Splash() {
   const navigation = useNavigation();
   return (
     <LottieView
-      source={require('../../assets/animations/netflix_splash.json')}
+      source={require('../../../assets/animations/netflix_splash.json')}
       style={styles.container}
       autoPlay
       loop={false}
