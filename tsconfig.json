@@ -1,9 +1,14 @@
 {
   "extends": "@react-native/typescript-config",
   "compilerOptions": {
+    "baseUrl": ".",
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
-    "emitDecoratorMetadata": true
+    "emitDecoratorMetadata": true,
+    "paths": {
+      "@view/*": ["src/view/*"],
+      "@assets/*": ["assets/*"]
+    }
   },
   "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["**/node_modules", "**/Pods"]

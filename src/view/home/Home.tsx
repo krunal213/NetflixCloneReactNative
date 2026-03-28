@@ -1,12 +1,12 @@
 import { View, StyleSheet, FlatList, Image, ListRenderItem } from 'react-native';
-import { AppHeader, type HeaderAction } from '../../../AppHeader';
+import { AppHeader, type HeaderAction } from '../../AppHeader';
 import { Chip, Text } from 'react-native-paper';
 import LinearGradient from 'react-native-linear-gradient';
-import { ChipItem, BannerItem, MovieItem, Content } from '../redux/asyncthunk/homeAsyncThunk'
+import { ChipItem, BannerItem, MovieItem, Content } from './homeAsyncThunk'
 import { useDispatch, useSelector } from 'react-redux'
-import type { RootState, AppDispatch } from '../../../store'
+import type { RootState, AppDispatch } from '../../store'
 import React, { useEffect } from 'react';
-import {homeAsyncThunk} from '../redux/asyncthunk/homeAsyncThunk'
+import {homeAsyncThunk} from './homeAsyncThunk'
 
 export function Home() {
 
@@ -17,8 +17,8 @@ export function Home() {
   }, [dispatch])
 
   const headerActions: HeaderAction[] = [
-    { icon: require('../../../../assets/icons/ic_download.png'), onPress: () => console.log('Notifications') },
-    { icon: require('../../../../assets/icons/ic_search.png'), onPress: () => console.log('Search') },
+    { icon: require('@assets/icons/ic_download.png'), onPress: () => console.log('Notifications') },
+    { icon: require('@assets/icons/ic_search.png'), onPress: () => console.log('Search') },
   ];
 
   // 🔹 Type guards
@@ -133,7 +133,7 @@ export function Home() {
       style={home.container}  >
       <View style={home.container}>
         <AppHeader
-          logo={require('../../../../assets/icons/ic_netflix.png')}
+          logo={require('@assets/icons/ic_netflix.png')}
           actions={headerActions} style={
             {
               backgroundColor: 'transparent', elevation: 0

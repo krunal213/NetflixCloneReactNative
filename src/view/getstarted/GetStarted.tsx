@@ -4,7 +4,7 @@ import {
   ImageBackground
 } from 'react-native';
 import { Button } from 'react-native-paper';
-import { AppHeader, HeaderAction } from '../../../AppHeader';
+import { AppHeader, HeaderAction } from '../../AppHeader';
 import { useNavigation } from '@react-navigation/native';
 
 const GetStarted = () => {
@@ -17,12 +17,12 @@ const GetStarted = () => {
 
   return (
     <ImageBackground
-      source={require('../../../../assets/icons/ic_background_grid.png')}
+      source={require('@assets/icons/ic_background_grid.png')}
       style={styles.background}
       resizeMode="cover"
     >
       <AppHeader
-        logo={require('../../../../assets/icons/ic_netflix.png')}
+        logo={require('@assets/icons/ic_netflix.png')}
         actions={headerActions}
         style={styles.header}
       />

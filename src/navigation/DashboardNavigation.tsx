@@ -1,9 +1,9 @@
 import { Provider as PaperProvider, Icon, MD2DarkTheme } from 'react-native-paper';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Home } from '../home/view/Home';
-import { Clips } from '../clips/view/Clips';
-import { Games } from '../games/view/Games';
-import { MyNetflix } from '../mynetflix/view/MyNetflix';
+import { Home } from '@view/home/Home';
+import { Clips } from '@view/clips/Clips';
+import { Games } from '@view/games/Games';
+import { MyNetflix } from '@view/mynetflix/MyNetflix';
 
 const Tab = createBottomTabNavigator();
 
@@ -35,7 +35,7 @@ export default function DashboardNavigation() {
           options={{
             tabBarLabel: 'Home',
             tabBarIcon: ({ color, focused }) => (
-              <Icon source={focused ? require('../../../assets/icons/ic_home_filled.png') : require('../../../assets/icons/ic_home.png')}
+              <Icon source={focused ? require('@assets/icons/ic_home_filled.png') : require('@assets/icons/ic_home.png')}
                 color={color}
                 size={26} />
             ),
@@ -47,7 +47,7 @@ export default function DashboardNavigation() {
           options={{
             tabBarLabel: 'Clips',
             tabBarIcon: ({ color, focused }) => (
-              <Icon source={focused ? require('../../../assets/icons/ic_clips_filled.png') : require('../../../assets/icons/ic_clips.png')}
+              <Icon source={focused ? require('@assets/icons/ic_clips_filled.png') : require('@assets/icons/ic_clips.png')}
                 color={color}
                 size={26} />
             ),
@@ -59,7 +59,7 @@ export default function DashboardNavigation() {
           options={{
             tabBarLabel: 'Games',
             tabBarIcon: ({ color, focused }) => (
-              <Icon source={focused ? require('../../../assets/icons/ic_games_filled.png') : require('../../../assets/icons/ic_games.png')}
+              <Icon source={focused ? require('@assets/icons/ic_games_filled.png') : require('@assets/icons/ic_games.png')}
                 color={color}
                 size={26} />
             ),
@@ -71,7 +71,7 @@ export default function DashboardNavigation() {
           options={{
             tabBarLabel: 'My Netflix',
             tabBarIcon: ({ color, focused }) => (
-              <Icon source={focused ? require('../../../assets/icons/ic_profile_filled.png') : require('../../../assets/icons/ic_profile.png')}
+              <Icon source={focused ? require('@assets/icons/ic_profile_filled.png') : require('@assets/icons/ic_profile.png')}
                 color={color}
                 size={26} />
             ),
