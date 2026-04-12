@@ -1,9 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import {SplashUseCase} from '@domain/splash/SplashUseCase'
+import {Dependencies} from '../../dependencies'
 
-export const splashAsyncThunk = createAsyncThunk("Splash", async (_,{rejectWithValue}) => {
+export const splashAsyncThunk = createAsyncThunk<boolean,void,{extra : Dependencies}>("Splash", async (_,{extra, rejectWithValue}) => {
     try {
-        return await new SplashUseCase().execute()
+        return await extra.splashUseCase.execute()
     } catch (error) {
         return rejectWithValue("Something went wrong!");
     }

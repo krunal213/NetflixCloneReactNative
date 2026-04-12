@@ -2,15 +2,25 @@
   "extends": "@react-native/typescript-config",
   "compilerOptions": {
     "baseUrl": ".",
+
+    "ignoreDeprecations": "6.0",
     "allowSyntheticDefaultImports": true,
+
+    // ✅ Required for decorators (tsyringe)
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
+
+    // ✅ Recommended for metadata reflection
+    "strictPropertyInitialization": false,
+
+    // ✅ Helps DI + imports consistency
+    "esModuleInterop": true,
+
+    // ✅ Path aliases (you already did correctly)
     "paths": {
       "@view/*": ["src/view/*"],
       "@assets/*": ["assets/*"],
       "@domain/*": ["src/domain/*"]
     }
-  },
-  "include": ["**/*.ts", "**/*.tsx"],
-  "exclude": ["**/node_modules", "**/Pods"]
+  }
 }

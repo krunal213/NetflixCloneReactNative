@@ -1,6 +1,12 @@
 module.exports = {
   presets: ['module:@react-native/babel-preset'],
   plugins: [
+    // ✅ MUST be first
+    ['@babel/plugin-proposal-decorators', { legacy: true }],
+
+    // ✅ Required with decorators
+    ['@babel/plugin-proposal-class-properties', { loose: true }],
+
     [
       'module-resolver',
       {
@@ -12,7 +18,11 @@ module.exports = {
         },
       },
     ],
+
+    // ✅ Needed for tsyringe (metadata reflection)
     'babel-plugin-transform-typescript-metadata',
-    'react-native-reanimated/plugin', // MUST BE LAST
+
+    // ✅ MUST BE LAST
+    'react-native-reanimated/plugin',
   ],
 };
